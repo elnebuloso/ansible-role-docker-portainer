@@ -11,6 +11,7 @@
     image: "portainer/portainer:{{docker_portainer_version}}"
     state: "{{docker_portainer_state}}"
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - "{{docker_portainer_volume}}/data:/data"
     ports:
       - "{{docker_portainer_port}}:9000"
