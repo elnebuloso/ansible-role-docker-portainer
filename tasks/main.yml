@@ -1,9 +1,16 @@
 ---
 - name: set docker_portainer_volume
-  set_fact: docker_portainer_volume="{{docker_portainer_container_volume_base}}/{{docker_portainer_container_name}}-{{docker_portainer_version}}"
+  set_fact: docker_portainer_volume="{{docker_portainer_container_volume_base}}/{{docker_portainer_container_name}}"
 
 - name: create volume directory for data
   file: path={{docker_portainer_volume}}/data state=directory recurse=yes
+
+- name: initial database
+  copy:
+    src: "{{ docker_portainer_initial_database_file }}"
+    dest: "{{ docker_portainer_volume }}/data/portainer.db"
+    mode: 0600
+  when: "{{ docker_portainer_initial_database_file != '' }}"
 
 - name: install container
   docker_container:
