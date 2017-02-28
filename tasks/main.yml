@@ -10,6 +10,7 @@
     src: "{{ docker_portainer_initial_database_file }}"
     dest: "{{ docker_portainer_volume }}/data/portainer.db"
     mode: 0600
+    force: no
   when: "{{ docker_portainer_initial_database_file != '' }}"
 
 - name: install container
