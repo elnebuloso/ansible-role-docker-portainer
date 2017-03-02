@@ -16,6 +16,7 @@ docker_portainer_version: "1.11.1"
 docker_portainer_container_name: "portainer"
 docker_portainer_container_volume_base: "/opt/docker"
 docker_portainer_port: "9000"
+docker_portainer_initial_database_file: "files/portainer/portainer.db"
 ```
 
 ## Example Playbook
