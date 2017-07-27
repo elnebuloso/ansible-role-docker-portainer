@@ -1,0 +1,8 @@
+#!/bin/sh
+
+printf '[defaults]\nroles_path=../' > ansible.cfg
+
+ansible-playbook -i 'localhost,' -c local tests/test.yml --syntax-check
+ansible-playbook -i 'localhost,' -c local tests/test.yml
+
+rm ansible.cfg

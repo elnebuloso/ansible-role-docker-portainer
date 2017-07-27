@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [1.4.0] - 2017-07-28
+### Added
+- docker_portainer_pull: "no"
+- docker_portainer_state: "started"
+- docker_portainer_restart_policy: "always"
+
+
 ## [1.3.0] - 2017-04-22
 ### Changed
 - bugfix ansible when: docker_portainer_initial_database_file

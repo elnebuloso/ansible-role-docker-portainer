@@ -8,23 +8,14 @@ This role requires Ansible 2.0 or higher, and platform requirements are listed i
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `defaults/main.yml`):
-
-```
-docker_portainer_state: "started"
-docker_portainer_version: "1.11.1"
-docker_portainer_container_name: "portainer"
-docker_portainer_container_volume_base: "/opt/docker"
-docker_portainer_port: "9000"
-docker_portainer_initial_database_file: "files/portainer/portainer.db"
-```
+- [`defaults/main.yml`](https://github.com/elnebuloso/ansible-role-docker-portainer/blob/master/defaults/main.yml)
 
 ## Example Playbook
 
 ```
 - hosts: localhost
   roles:
-    - { role: elnebuloso.docker-portainer }
+    - role: elnebuloso.docker-portainer
 ```
 
 ## Dependencies

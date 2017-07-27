@@ -17,7 +17,9 @@
   docker_container:
     name: "{{docker_portainer_container_name}}"
     image: "portainer/portainer:{{docker_portainer_version}}"
+    pull: "{{docker_portainer_pull}}"
     state: "{{docker_portainer_state}}"
+    restart_policy: "{{docker_portainer_restart_policy}}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - "{{docker_portainer_volume}}/data:/data"
