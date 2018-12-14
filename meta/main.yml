@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: docker-portainer
   author: elnebuloso
   description: Portainer for Docker
   license: license (MIT)
