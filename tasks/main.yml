@@ -1,27 +1,27 @@
 ---
 - name: set docker_portainer_volume
-  set_fact: docker_portainer_volume="{{docker_portainer_container_volume_base}}/{{docker_portainer_container_name}}"
+  set_fact: docker_portainer_volume="{{ docker_portainer_container_volume_base }}/{{ docker_portainer_container_name }}"
 
 - name: create volume directory for data
-  file: path={{docker_portainer_volume}}/data state=directory recurse=yes
+  file: path={{ docker_portainer_volume }}/data state=directory recurse=yes
 
 - name: initial database
   copy:
-    src: "{{docker_portainer_initial_database_file}}"
-    dest: "{{docker_portainer_volume}}/data/portainer.db"
+    src: "{{ docker_portainer_initial_database_file }}"
+    dest: "{{ docker_portainer_volume }}/data/portainer.db"
     mode: 0600
     force: no
   when: docker_portainer_initial_database_file != ""
 
 - name: install container
   docker_container:
-    name: "{{docker_portainer_container_name}}"
-    image: "portainer/portainer:{{docker_portainer_version}}"
-    pull: "{{docker_portainer_pull}}"
-    state: "{{docker_portainer_state}}"
-    restart_policy: "{{docker_portainer_restart_policy}}"
+    name: "{{ docker_portainer_container_name }}"
+    image: "portainer/portainer:{{ docker_portainer_version }}"
+    pull: "{{ docker_portainer_pull }}"
+    state: "{{ docker_portainer_state }}"
+    restart_policy: "{{ docker_portainer_restart_policy }}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - "{{docker_portainer_volume}}/data:/data"
+      - "{{ docker_portainer_volume }}/data:/data"
     ports:
-      - "{{docker_portainer_port}}:9000"
+      - "{{ docker_portainer_port }}:9000"
