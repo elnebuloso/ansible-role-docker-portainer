@@ -1,6 +1,6 @@
 # Ansible Role - Portainer for Docker
 
-[![Build Status](https://travis-ci.org/elnebuloso/ansible-role-docker-portainer.svg?branch=master)](https://travis-ci.org/elnebuloso/ansible-role-docker-portainer)
+![abandoned](https://img.shields.io/badge/project-abandoned-red)
 
 ## Requirements
 
